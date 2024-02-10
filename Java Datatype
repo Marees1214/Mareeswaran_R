@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class DataTypeFitting {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the number of test cases
+        int t = scanner.nextInt();
+
+        for (int i = 0; i < t; i++) {
+            // Read the input number for each test case
+            long num = scanner.nextLong();
+
+            // Check and print the data types that can store the number
+            checkDataTypeFit(num);
+        }
+
+        scanner.close();
+    }
+
+    private static void checkDataTypeFit(long num) {
+        System.out.println(num + " can be fitted in:");
+
+        // Check and print short, int, and long data types
+        if (num >= Byte.MIN_VALUE && num <= Byte.MAX_VALUE) {
+            System.out.println("* byte");
+        }
+        if (num >= Short.MIN_VALUE && num <= Short.MAX_VALUE) {
+            System.out.println("* short");
+        }
+        if (num >= Integer.MIN_VALUE && num <= Integer.MAX_VALUE) {
+            System.out.println("* int");
+        }
+        if (num >= Long.MIN_VALUE && num <= Long.MAX_VALUE) {
+            System.out.println("* long");
+        } else {
+            System.out.println(num + " can't be fitted anywhere.");
+        }
+    }
+}
